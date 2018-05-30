@@ -6,8 +6,8 @@ export default Controller.extend({
   quiz: service(),
 
   actions: {
-    next_question(user) {
-      this.get('quiz').next_question(user);
+    submit_answer(user) {
+      this.get('quiz').submit_answer(user);
     },
 
     delete_qs() {

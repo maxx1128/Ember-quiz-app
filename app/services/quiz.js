@@ -12,19 +12,16 @@ export default Service.extend({
     return this.get('questions_data').objectAt(this.get('current_q_number'));
   }),
 
-  next_question: function(user) {
+  submit_answer: function(user, q_number, correct, points) {
     let store = this.get('store');
 
     store.createRecord('answer', {
-      question: 1,
+      question: q_number,
       user_codename: user.code_name,
       user_realname: user.real_name,
-      answer: 'A',
-      correct: true,
-      points: 5
+      correct: correct,
+      points: points
     }).save();
-
-    this.incrementProperty('current_q_number');
   },
 
   delete_all_qs: function() {

@@ -7,6 +7,13 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('user', function() {
+    this.route('new');
+    this.route('answering');
+  });
+  this.route('waiting');
+  this.route('quiz_screen');
+  this.route('results');
 });
 
 export default Router;

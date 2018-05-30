@@ -1,0 +1,39 @@
+
+<ul>
+  {{#each model as |answer|}}
+    <li>
+      {{answer.user_codename}}
+    </li>
+  {{/each}}
+</ul>
+
+<h1>
+  Answering screen!
+</h1>
+
+<ul>
+  <li>
+    Real name: {{user.real_name}}
+  </li>
+  <li>
+    Code name: {{user.code_name}}
+  </li>
+</ul>
+
+<br><br>
+
+<p>
+  {{ quiz.current_q.text }}
+</p>
+
+<br><br>
+
+<button {{ action 'next_question' user }}>
+  Next Q
+</button>
+
+<br>
+
+<button {{ action 'delete_qs' user }}>
+  Delete All
+</button>

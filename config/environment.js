@@ -3,6 +3,14 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'seeclicktrivia',
+    firebase: {
+      apiKey: "AIzaSyAmVQUL0zD1z24Bm-yl8OwwWEyK-MtLw8E",
+      authDomain: "seeclicktrivia.firebaseapp.com",
+      databaseURL: "https://seeclicktrivia.firebaseio.com",
+      projectId: "seeclicktrivia",
+      storageBucket: "seeclicktrivia.appspot.com",
+      messagingSenderId: "1022250737020"
+    },
     environment,
     rootURL: '/',
     locationType: 'auto',

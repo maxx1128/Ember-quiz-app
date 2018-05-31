@@ -11,6 +11,17 @@
 {{current-question
     question_number = question_number}}
 
+<br><br>
+
+<p>
+  Answers for this question:
+</p>
+
+{{#each users_who_answered as |user|}}
+  {{user-item
+      user=user}}
+{{/each}}
+
 <br><br><br>
 
 <button {{ action 'close_question' }}>

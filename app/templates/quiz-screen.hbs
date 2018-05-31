@@ -1,1 +1,30 @@
-{{outlet}}
+<h1>
+  Quiz screen!
+</h1>
+
+<h3>
+  Question is {{ question_state }}
+</h3>
+
+<br><br>
+
+{{current-question
+    question_number = question_number}}
+
+<br><br><br>
+
+<button {{ action 'close_question' }}>
+  Close Question
+</button>
+
+<br><br>
+
+<button {{ action 'go_to_next_question' }}>
+  Next Question
+</button>
+
+<br><br>
+
+<button {{ action 'reset_quiz_state' }}>
+  Reset Quiz
+</button>

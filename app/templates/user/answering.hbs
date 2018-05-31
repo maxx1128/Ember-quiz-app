@@ -43,18 +43,12 @@
   <br><br>
 
   {{current-question
-      question_number = model.question.number}}
+      question_number = question_number}}
 
   <br><br>
 
   <button {{ action 'submit_answer' user model.question.number true 5 }}>
     Submit Answer
-  </button>
-
-  <br><br>
-
-  <button {{ action 'go_to_next_question' }}>
-    Next Question
   </button>
 {{/if}}
 

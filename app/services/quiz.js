@@ -23,10 +23,24 @@ export default Service.extend({
     });
   },
 
+  close_question: function() {
+    this.get('store').findRecord('question', 1).then(function(question) {
+      question.set('state', 'closed');
+      question.save();
+    });
+  },
+
+  open_question: function() {
+    this.get('store').findRecord('question', 1).then(function(question) {
+      question.set('state', 'open');
+      question.save();
+    });
+  },
+
   reset_quiz_state: function() {
     this.get('store').findRecord('question', 1).then(function(question) {
       question.set('number', 0);
-      question.set('state', 'closed');
+      question.set('state', 'open');
       question.save();
     });
   },

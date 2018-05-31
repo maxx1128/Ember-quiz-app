@@ -13,10 +13,6 @@ export default Controller.extend({
   question_state: alias('model.question.state'),
   question_number: alias('model.question.number'),
 
-  next_question_number: computed('question_number', function(){
-    return (this.get('question_number') + 1);
-  }),
-
   showing_hold_screen: computed('question_state', 'answered_state', function(){
     let answered_question = this.get('answered_state'),
         not_open_question = (this.get('question_state') !== 'open');
@@ -33,13 +29,6 @@ export default Controller.extend({
       if ((this.get('question_state') === 'open') && (this.get('answered_state') === false) ) {
         this.get('quiz').submit_answer(user, q_number, correct, points);
         this.set('answered_state', true);
-      }
-    },
-
-    go_to_next_question() {
-      if (this.get('question_state') === 'closed') {
-        this.get('quiz').update_question_number(this.get('next_question_number'));
-        this.set('answered_state', false);
       }
     },
 

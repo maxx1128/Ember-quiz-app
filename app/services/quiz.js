@@ -1,16 +1,10 @@
 import Service from '@ember/service';
 import { computed } from '@ember/object';
-import questions from './../data/questions';
 
 import { inject as service } from '@ember/service';
 
 export default Service.extend({
   store: service(),
-  current_q_number: 0,
-
-  current_q: computed('questions_data', 'current_q_number', function(){
-    return this.get('questions_data').objectAt(this.get('current_q_number'));
-  }),
 
   submit_answer: function(user, q_number, correct, points) {
     let store = this.get('store');
@@ -24,6 +18,13 @@ export default Service.extend({
     }).save();
   },
 
+  update_question_number: function(number) {
+    this.get('store').findRecord('question', 1).then(function(question) {
+      question.set('number', number);
+      question.save();
+    });
+  },
+
   delete_all_qs: function() {
     this.get('store').findAll('answer').then(function(answer){
       answer.forEach(function(rec) {
@@ -33,6 +34,4 @@ export default Service.extend({
       answer.save();
     });
   },
-
-  questions_data: questions
 });

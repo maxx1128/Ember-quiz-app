@@ -1,6 +1,6 @@
 
 <ul>
-  {{#each model as |answer|}}
+  {{#each model.answers as |answer|}}
     <li>
       {{answer.user_codename}}
     </li>
@@ -23,8 +23,13 @@
 <br><br>
 
 <p>
-  {{ quiz.current_q.text }}
+  Question index: {{ quiz.current_q_number }}
 </p>
+
+<br><br>
+
+{{current-question
+    question_number = model.question.number}}
 
 <br><br>
 
@@ -32,7 +37,13 @@
   Submit Answer
 </button>
 
-<br>
+<br><br>
+
+<button {{ action 'update_question' 1 }}>
+  Next Question
+</button>
+
+<br><br>
 
 <button {{ action 'delete_qs' user }}>
   Delete All

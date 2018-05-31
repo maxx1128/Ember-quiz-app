@@ -10,6 +10,10 @@ export default Controller.extend({
       this.get('quiz').submit_answer(user);
     },
 
+    update_question(number) {
+      this.get('quiz').update_question_number(number);
+    },
+
     delete_qs() {
       this.get('quiz').delete_all_qs();
     }

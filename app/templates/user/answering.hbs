@@ -23,7 +23,7 @@
 <br><br>
 
 <p>
-  Question index: {{ quiz.current_q_number }}
+  Question index: {{ model.question.number }}
 </p>
 
 <br><br>
@@ -33,7 +33,7 @@
 
 <br><br>
 
-<button {{ action 'submit_answer' user quiz.current_q_number true 5 }}>
+<button {{ action 'submit_answer' user model.question.number true 5 }}>
   Submit Answer
 </button>
 

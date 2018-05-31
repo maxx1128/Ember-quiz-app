@@ -1,1 +1,40 @@
-{{outlet}}
+<h1>
+  Join the Quiz!
+</h1>
+
+<br><br>
+
+{{#unless user.info_added}}
+  {{ input value=real_name class="border p2" placeholder="Real Name" }}
+
+  <br><br>
+
+  {{ input value=code_name class="border p2" placeholder="Code Name" }}
+
+  <br>
+  <br>
+  <br>
+
+  <button {{ action 'update_user_info' }}>
+    Update info
+  </button>
+{{else}}
+  <h4>
+    Real name: {{ user.real_name }}
+  </h4>
+  <h4>
+    Code name: {{ user.code_name }}
+  </h4>
+
+  <img src="{{user.avatar_url}}" alt="User avatar">
+
+  <br><br>
+
+  <p>
+    You're ready to play!
+  </p>
+
+  {{#link-to 'user.answering'}}
+    Go to the quiz!
+  {{/link-to}}
+{{/unless}}

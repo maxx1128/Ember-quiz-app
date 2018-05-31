@@ -1,50 +1,65 @@
+{{#if showing_hold_screen}}
 
-<ul>
-  {{#each model.answers as |answer|}}
+  <h1>
+    Hold Screen!
+  </h1>
+
+  <p>
+    Please wait for the next question to become available.
+  </p>
+
+{{else}}
+
+  <h1>
+    Answering screen!
+  </h1>
+
+  <ul>
     <li>
-      {{answer.user_codename}}
+      Real name: {{user.real_name}}
     </li>
-  {{/each}}
-</ul>
+    <li>
+      Code name: {{user.code_name}}
+    </li>
+  </ul>
 
-<h1>
-  Answering screen!
-</h1>
+  <br><br>
 
-<ul>
-  <li>
-    Real name: {{user.real_name}}
-  </li>
-  <li>
-    Code name: {{user.code_name}}
-  </li>
-</ul>
+  <ul>
+    <li>
+      Question index: {{ question_number }}
+    </li>
+    <li>
+      Next Question: {{ next_question_number }}
+    </li>
+    <li>
+      Answered State: {{ answered_state }}
+    </li>
+    <li>
+      Question State: {{ question_state }}
+    </li>
+  </ul>
 
-<br><br>
+  <br><br>
 
-<p>
-  Question index: {{ model.question.number }}
-</p>
+  {{current-question
+      question_number = model.question.number}}
 
-<br><br>
+  <br><br>
 
-{{current-question
-    question_number = model.question.number}}
+  <button {{ action 'submit_answer' user model.question.number true 5 }}>
+    Submit Answer
+  </button>
 
-<br><br>
+  <br><br>
 
-<button {{ action 'submit_answer' user model.question.number true 5 }}>
-  Submit Answer
-</button>
+  <button {{ action 'go_to_next_question' }}>
+    Next Question
+  </button>
+{{/if}}
 
-<br><br>
+<br><br><br>
 
-<button {{ action 'update_question' 1 }}>
-  Next Question
-</button>
-
-<br><br>
-
-<button {{ action 'delete_qs' user }}>
-  Delete All
+<button {{ action 'reset_quiz_state' }}>
+  Reset Quiz
 </button>

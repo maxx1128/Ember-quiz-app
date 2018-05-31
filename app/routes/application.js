@@ -10,5 +10,9 @@ export default Route.extend({
       question: this.store.findRecord('question', 1),
       answers: this.store.findAll('answer')
     });
+  },
+
+  setupController: function(controller, model) {
+    controller.set('model', model);
   }
 });

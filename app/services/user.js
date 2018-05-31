@@ -3,8 +3,8 @@ import { computed } from '@ember/object';
 
 export default Service.extend({
   info_added: false,
-  real_name: "",
-  code_name: "",
+  real_name: "Default Real Name",
+  code_name: "Default Code Name",
 
   avatar_url: computed('code_name', function(){
     const code_name = this.get('code_name');

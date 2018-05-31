@@ -1,5 +1,4 @@
 import Service from '@ember/service';
-
 import { inject as service } from '@ember/service';
 
 export default Service.extend({
@@ -20,6 +19,14 @@ export default Service.extend({
   update_question_number: function(number) {
     this.get('store').findRecord('question', 1).then(function(question) {
       question.set('number', number);
+      question.save();
+    });
+  },
+
+  reset_quiz_state: function() {
+    this.get('store').findRecord('question', 1).then(function(question) {
+      question.set('number', 0);
+      question.set('state', 'closed');
       question.save();
     });
   },

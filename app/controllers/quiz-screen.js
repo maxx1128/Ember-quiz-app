@@ -6,9 +6,12 @@ import { alias } from '@ember/object/computed';
 export default Controller.extend({
   quiz: service(),
 
-  showing_rankings: false,
   question_state: alias('model.question.state'),
   question_number: alias('model.question.number'),
+
+  showing_rankings: computed('question_state', function() {
+    return (this.get('question_state') === 'closed') ? true : false;
+  }),
 
   users_who_answered: computed('question_number', function() {
     return this.get('quiz').get_users_who_answered(this.get('question_number'), this.get('model.answers'));
@@ -21,13 +24,11 @@ export default Controller.extend({
   actions: {
     close_question() {
       this.get('quiz').close_question();
-      this.set('showing_rankings', true);
     },
 
     go_to_next_question() {
       if (this.get('question_state') === 'closed') {
         this.get('quiz').update_question_number(this.get('next_question_number'));
-        this.set('showing_rankings', false);
         this.get('quiz').open_question();
       }
 

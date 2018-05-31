@@ -1,0 +1,7 @@
+<ul>
+  {{#each answers as |answer|}}
+    <li {{ action 'select_answer' user question_number answer.correct }}>
+      {{answer.text}}
+    </li>
+  {{/each}}
+</ul>

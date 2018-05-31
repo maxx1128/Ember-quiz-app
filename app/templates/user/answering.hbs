@@ -30,9 +30,6 @@
       Question index: {{ question_number }}
     </li>
     <li>
-      Next Question: {{ next_question_number }}
-    </li>
-    <li>
       Answered State: {{ answered_state }}
     </li>
     <li>
@@ -47,9 +44,10 @@
 
   <br><br>
 
-  <button {{ action 'submit_answer' user model.question.number true 5 }}>
-    Submit Answer
-  </button>
+  {{current-answers
+      question_number=question_number
+      user=user
+      answered_state=answered_state}}
 {{/if}}
 
 <br><br><br>

@@ -11,7 +11,5 @@ export default Route.extend({
 
   setupController: function(controller, model) {
     controller.set('model', model);
-    controller.set('question_state', model.question.state);
-    controller.set('question_number', model.question.number);
   }
 });

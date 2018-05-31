@@ -13,6 +13,10 @@ export default Controller.extend({
   question_state: alias('model.question.state'),
   question_number: alias('model.question.number'),
 
+  users_who_answered: computed('question_number', function() {
+    return this.get('quiz').get_users_who_answered(this.get('question_number'), this.get('model.answers'));
+  }).property('model.answers.@each'),
+
   showing_hold_screen: computed('question_state', 'answered_state', function(){
     let answered_question = this.get('answered_state'),
         not_open_question = (this.get('question_state') !== 'open');
@@ -23,6 +27,9 @@ export default Controller.extend({
   update_for_next_question: observer('question_number', 'question_state', function() {
     if (this.get('question_state') === 'open') { this.set('answered_state', false); }
   }),
+
+  // Pull the list of answered users from this question, and see how long it is. If it's under a certain length, use that to scale the amount of points that would normally be entered
+  // Base point value is determined if it's correct or not. Scaling is based on the list.
 
   actions: {
     submit_answer(user, q_number, correct, points) {

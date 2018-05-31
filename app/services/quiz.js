@@ -16,6 +16,10 @@ export default Service.extend({
     }).save();
   },
 
+  get_users_who_answered: function(question_number, users) {
+    return users.filterBy('question', question_number);
+  },
+
   update_question_number: function(number) {
     this.get('store').findRecord('question', 1).then(function(question) {
       question.set('number', number);

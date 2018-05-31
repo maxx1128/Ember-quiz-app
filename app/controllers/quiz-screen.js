@@ -11,9 +11,7 @@ export default Controller.extend({
   question_number: alias('model.question.number'),
 
   users_who_answered: computed('question_number', function() {
-    let question_number = this.get('question_number');
-
-    return this.get('model.answers').filterBy('question', question_number);
+    return this.get('quiz').get_users_who_answered(this.get('question_number'), this.get('model.answers'));
   }).property('model.answers.@each'),
 
   next_question_number: computed('question_number', function(){

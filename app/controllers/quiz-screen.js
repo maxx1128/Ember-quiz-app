@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
+import questions from './../data/questions';
 import { alias } from '@ember/object/computed';
 
 export default Controller.extend({
@@ -9,7 +10,7 @@ export default Controller.extend({
   question_state: alias('model.question.state'),
   question_number: alias('model.question.number'),
 
-  showing_rankings: computed('question_state', function() {
+  question_is_closed: computed('question_state', function() {
     return (this.get('question_state') === 'closed') ? true : false;
   }),
 
@@ -21,13 +22,22 @@ export default Controller.extend({
     return (this.get('question_number') + 1);
   }),
 
+  last_question: computed('questions_data', 'next_question_number', function(){
+      let total_questions = this.get('questions_data').length,
+          next_question = this.get('next_question_number');
+
+      return (next_question === total_questions);
+  }),
+
   actions: {
     close_question() {
       this.get('quiz').close_question();
     },
 
     go_to_next_question() {
-      if (this.get('question_state') === 'closed') {
+      if (this.get('last_question')) {
+        this.transitionToRoute('results');
+      } else if (this.get('question_state') === 'closed') {
         this.get('quiz').update_question_number(this.get('next_question_number'));
         this.get('quiz').open_question();
       }
@@ -41,5 +51,7 @@ export default Controller.extend({
 
       this.notifyPropertyChange('users_who_answered');
     }
-  }
+  },
+
+  questions_data: questions
 });

@@ -20,21 +20,25 @@
 {{#each users_who_answered as |user|}}
   {{user-item
       user=user
-      show_ranking=showing_rankings
+      show_ranking=question_is_closed
       show_real_name=false}}
 {{/each}}
 
 <br><br><br>
 
-<button {{ action 'close_question' }}>
-  Close Question
-</button>
-
-<br><br>
-
-<button {{ action 'go_to_next_question' }}>
-  Next Question
-</button>
+{{#unless question_is_closed}}
+  <button {{ action 'close_question' }}>
+    Close Question
+  </button>
+{{else}}
+  <button {{ action 'go_to_next_question' }}>
+    {{#if last_question}}
+      See the Results!
+    {{else}}
+      Next Question
+    {{/if}}
+  </button>
+{{/unless}}
 
 <br><br>
 

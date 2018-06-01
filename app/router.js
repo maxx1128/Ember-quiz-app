@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('waiting');
   this.route('quiz_screen');
   this.route('results');
+  this.route('explaination');
 });
 
 export default Router;

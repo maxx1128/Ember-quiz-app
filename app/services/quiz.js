@@ -44,7 +44,7 @@ export default Service.extend({
   reset_quiz_state: function() {
     this.get('store').findRecord('question', 1).then(function(question) {
       question.set('number', 0);
-      question.set('state', 'open');
+      question.set('state', 'closed');
       question.save();
     });
   },

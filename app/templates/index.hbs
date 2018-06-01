@@ -1,10 +1,15 @@
 <h1>
-  Homepage!
+  Welcome to the quiz show!
 </h1>
 
-<br>
-<br>
-<br>
+<p>
+  Use the QR code below to get ready.
+</p>
 
-{{current-question
-    question_number = model.question.number}}
+<img src="https://www.lorempixel.com/g/400/400/" alt="">
+
+<br><br>
+
+{{#link-to 'explaination' class="bg-blue color-white"}}
+  Everyone signed up?
+{{/link-to}}

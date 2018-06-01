@@ -12,27 +12,23 @@ export default Controller.extend({
           already_added_index = false;
 
       points_tally.forEach(function(item, index){
-        let check_username = item.real_name;
+        let check_username = item.user_realname;
 
         if (real_name === check_username) { already_added_index = index; }
       });
 
-      if (already_added_index !== false) {
-        points_tally[already_added_index].points += answer.get('points');
-      } else {
+      if (already_added_index === false) {
         points_tally.push({
-          real_name: answer.get('user_realname'),
-          code_name: answer.get('user_codename'),
+          user_realname: answer.get('user_realname'),
+          user_codename: answer.get('user_codename'),
           points: answer.get('points'),
           avatar_url: answer.get('avatar_url')
         });
+      } else {
+        points_tally[already_added_index].points += answer.get('points');
       }
       return points_tally;
     }, []);
-
-    compiled_data.sort(function(a, b){
-      return b.points - a.points;
-    });
 
     // Organize sorted data from highest to lowest scores here!
 

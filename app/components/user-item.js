@@ -2,13 +2,19 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 
 export default Component.extend({
-  ranking_class: computed('user.correct', 'show_ranking', function() {
-    if (this.get('show_ranking')) {
-      let correct = this.get('user.correct');
+  tagName: '',
 
-      return correct ? 'bg-blue' : 'bg-red';
+  ranking_class: computed('user.correct', 'show_points', 'results_state', function() {
+    let positive_state;
+
+    if (this.get('results_state')) {
+      positive_state = (this.get('user.points') >= 0);
     } else {
-      return '';
+      positive_state = this.get('user.correct');
     }
+
+    let ranking_class = (positive_state ? 'bg-blue' : 'bg-red');
+
+    return this.get('show_points') ? ranking_class : '';
   })
 });

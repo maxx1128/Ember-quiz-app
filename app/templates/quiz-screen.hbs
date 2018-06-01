@@ -20,7 +20,9 @@
 {{#each users_who_answered as |user|}}
   {{user-item
       user=user
-      show_ranking=question_is_closed}}
+      results_state=false
+      show_points=question_is_closed
+      show_names=false}}
 {{/each}}
 
 <br><br><br>

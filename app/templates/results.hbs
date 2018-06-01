@@ -2,5 +2,39 @@
   Listing all the Results here!
 </h1>
 
-{{results-listing
-    user_data=model.answers}}
+{{#each organized_results as |user|}}
+  <div class="flex">
+    <span>
+      {{#if revealed_names}}
+        {{user.points}}
+      {{else}}
+        ?
+      {{/if}}
+    </span>
+
+    <img style="width: 50px; height: 50px;" src="{{ user.avatar_url }}" alt="User avatar">
+
+    <div>
+
+      {{#if revealed_names}}
+        <h3>
+          {{user.real_name}}
+        </h3>
+
+        <h6>
+          {{user.code_name}}
+        </h6>
+      {{else}}
+        <h3>
+          {{user.code_name}}
+        </h3>
+      {{/if}}
+    </div>
+  </div>
+{{/each}}
+
+<br><br>
+
+<button {{ action 'reveal_names' }}>
+  Reveal the names!
+</button>

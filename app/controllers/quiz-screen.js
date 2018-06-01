@@ -14,13 +14,13 @@ export default Controller.extend({
     return (this.get('question_state') === 'closed') ? true : false;
   }),
 
-  users_who_answered: computed('question_number', function() {
-    return this.get('quiz').get_users_who_answered(this.get('question_number'), this.get('model.answers'));
-  }).property('model.answers.@each'),
-
   next_question_number: computed('question_number', function(){
     return (this.get('question_number') + 1);
   }),
+
+  users_who_answered: computed('question_number', function() {
+    return this.get('quiz').get_users_who_answered(this.get('question_number'), this.get('model.answers'));
+  }).property('model.answers.@each'),
 
   last_question: computed('questions_data', 'next_question_number', function(){
       let total_questions = this.get('questions_data').length,

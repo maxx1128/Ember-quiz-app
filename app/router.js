@@ -11,10 +11,10 @@ Router.map(function() {
     this.route('new');
     this.route('answering');
   });
-  this.route('waiting');
   this.route('quiz_screen');
   this.route('results');
   this.route('explaination');
+  this.route('login');
 });
 
 export default Router;

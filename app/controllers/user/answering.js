@@ -12,12 +12,14 @@ export default Controller.extend({
   answered_state: false,
   question_state: alias('model.question.state'),
   question_number: alias('model.question.number'),
+  finished_quiz: alias('model.question.finished'),
 
-  showing_hold_screen: computed('question_state', 'answered_state', function(){
+  showing_hold_screen: computed('question_state', 'answered_state', 'finished_quiz', function(){
     let answered_question = this.get('answered_state'),
-        not_open_question = (this.get('question_state') !== 'open');
+        not_open_question = (this.get('question_state') !== 'open'),
+        finished_quiz = (this.get('finished_quiz'));
 
-    return (answered_question || not_open_question);
+    return (answered_question || not_open_question || finished_quiz);
   }),
 
   update_for_next_question: observer('question_number', 'question_state', function() {

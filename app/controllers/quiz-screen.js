@@ -36,6 +36,7 @@ export default Controller.extend({
 
     go_to_next_question() {
       if (this.get('last_question')) {
+        this.get('quiz').finish_quiz();
         this.transitionToRoute('results');
       } else if (this.get('question_state') === 'closed') {
         this.get('quiz').update_question_number(this.get('next_question_number'));

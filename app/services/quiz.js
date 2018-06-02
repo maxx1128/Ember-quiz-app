@@ -1,8 +1,25 @@
 import Service from '@ember/service';
 import { inject as service } from '@ember/service';
+import login from './../data/login';
+import { computed } from '@ember/object';
 
 export default Service.extend({
   store: service(),
+
+  logged_in: false,
+
+  log_in: function(username, password) {
+    const saved_username = this.get('login_data').username,
+          saved_password = this.get('login_data').password,
+          correct_username = (saved_username === username),
+          correct_password = (saved_password === password);
+
+    if (correct_username && correct_password) {
+      this.set('logged_in', true);
+    } else {
+      this.set('logged_in', false);
+    }
+  },
 
   submit_answer: function(user, q_number, correct, points) {
     let store = this.get('store');
@@ -18,6 +35,13 @@ export default Service.extend({
 
   get_users_who_answered: function(question_number, users) {
     return users.filterBy('question', question_number);
+  },
+
+  finish_quiz: function() {
+    this.get('store').findRecord('question', 1).then(function(question) {
+      question.set('finished', true);
+      question.save();
+    });
   },
 
   update_question_number: function(number) {
@@ -45,6 +69,7 @@ export default Service.extend({
     this.get('store').findRecord('question', 1).then(function(question) {
       question.set('number', 0);
       question.set('state', 'closed');
+      question.set('finished', false);
       question.save();
     });
   },
@@ -58,4 +83,6 @@ export default Service.extend({
       answer.save();
     });
   },
+
+  login_data: login
 });

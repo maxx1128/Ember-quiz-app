@@ -5,7 +5,6 @@ export default Route.extend({
   quiz: service(),
 
   afterModel() {
-    const logged_in = this.get('quiz').logged_in;
-    if (!logged_in) { this.transitionTo('login'); }
+    if (this.get('quiz').logged_in) { this.transitionTo('index'); }
   }
 });

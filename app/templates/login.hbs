@@ -1,0 +1,27 @@
+<h1>
+  Halt!
+</h1>
+
+<p>
+  It's dangerous up ahead! Affirm your strength by entering the login info.
+</p>
+
+{{#if failed_login}}
+  <p>
+    WRONG!
+  </p>
+{{/if}}
+
+<br><br>
+
+{{ input value=username placeholder="Username" class="border p2" }}
+
+<br><br>
+
+{{ input value=password placeholder="Password" class="border p2" type="password" }}
+
+<br><br>
+
+<button {{ action 'login' username password }}>
+  Login
+</button>

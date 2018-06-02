@@ -13,3 +13,6 @@
 <button class="bg-blue color-white" {{ action 'start_quiz' }}>
   Let's begin!
 </button>
+
+{{quiz-footer
+    finished=model.question.finished}}

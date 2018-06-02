@@ -1,7 +1,10 @@
 import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 
 export default Controller.extend({
+  quiz: service(),
+
   revealed_names: false,
 
   organized_results: computed('model.answers', function(){
@@ -44,6 +47,12 @@ export default Controller.extend({
   actions: {
     reveal_names() {
       this.set('revealed_names', true);
+    },
+
+    reset_quiz_state() {
+      this.get('quiz').reset_quiz_state();
+      this.get('quiz').delete_all_qs();
+      this.transitionToRoute('index');
     }
   }
 });

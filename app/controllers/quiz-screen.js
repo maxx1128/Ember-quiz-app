@@ -44,13 +44,6 @@ export default Controller.extend({
       }
 
       this.notifyPropertyChange('users_who_answered');
-    },
-
-    reset_quiz_state() {
-      this.get('quiz').reset_quiz_state();
-      this.get('quiz').delete_all_qs();
-
-      this.notifyPropertyChange('users_who_answered');
     }
   },
 

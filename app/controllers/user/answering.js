@@ -36,11 +36,6 @@ export default Controller.extend({
         this.get('quiz').submit_answer(user, q_number, correct, points);
         this.set('answered_state', true);
       }
-    },
-
-    reset_quiz_state() {
-      this.get('quiz').reset_quiz_state();
-      this.get('quiz').delete_all_qs();
     }
   }
 });

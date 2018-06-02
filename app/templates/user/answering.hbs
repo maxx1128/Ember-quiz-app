@@ -14,15 +14,6 @@
     Answering screen!
   </h1>
 
-  <ul>
-    <li>
-      Real name: {{user.real_name}}
-    </li>
-    <li>
-      Code name: {{user.code_name}}
-    </li>
-  </ul>
-
   <br><br>
 
   {{current-question
@@ -37,9 +28,3 @@
       users_who_answered=users_who_answered
       number_of_answers=users_who_answered.length}}
 {{/if}}
-
-<br><br><br>
-
-<button {{ action 'reset_quiz_state' }}>
-  Reset Quiz
-</button>

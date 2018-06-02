@@ -43,6 +43,5 @@
 
 <br><br>
 
-<button {{ action 'reset_quiz_state' }}>
-  Reset Quiz
-</button>
+{{quiz-footer
+    finished=model.question.finished}}

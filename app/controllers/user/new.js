@@ -19,11 +19,11 @@ export default Controller.extend({
 
   actions: {
     update_user_info() {
-      let invalid = this.get('valid_user_data');
+      let invalid = this.get('invalid_user_data');
 
       if (!invalid) {
         this.get('user').set_names(this.get('real_name'), this.get('code_name'));
-        this.set('user_info_submitted');
+        this.set('user_info_submitted', true);
       }
     },
 

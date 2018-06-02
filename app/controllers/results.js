@@ -31,8 +31,14 @@ export default Controller.extend({
     }, []);
 
     // Organize sorted data from highest to lowest scores here!
+    const sorted_data = compiled_data.sort(function(a, b){
+      if (a.points < b.points) { return 1; }
+      if (a.points > b.points) { return -1; }
 
-    return compiled_data;
+      return 0;
+    });
+
+    return sorted_data;
   }),
 
   actions: {

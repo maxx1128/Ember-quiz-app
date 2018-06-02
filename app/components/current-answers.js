@@ -21,8 +21,7 @@ export default Component.extend({
         return usernames;
       }, []);
 
-      const current_user = get(user, 'code_name'),
-            current_user_didnt_answer = !(all_users.includes(get(user, 'code_name')));
+      const current_user_didnt_answer = !(all_users.includes(get(user, 'code_name')));
 
       if (current_user_didnt_answer) {
         let final_points,
@@ -33,7 +32,7 @@ export default Component.extend({
 
         if ((current_answers < timing_limit) && (timing_rank >= 1)) {
           base_points = correct ? 4 : -2;
-          
+
           final_points = (base_points * timing_rank);
         } else {
           final_points = correct ? base_points : 0;

@@ -4,7 +4,7 @@
 
 <br><br>
 
-{{#unless user.info_added}}
+{{#unless user_info_submitted}}
   {{ input value=real_name class="border p2" placeholder="Real Name" }}
 
   <br><br>
@@ -12,10 +12,16 @@
   {{ input value=code_name class="border p2" placeholder="Code Name" }}
 
   <br>
+
+  <button {{ action 'random_code_name' }}>
+    Make a random code name!
+  </button>
+
+  <br>
   <br>
   <br>
 
-  <button {{ action 'update_user_info' }}>
+  <button disabled={{ invalid_user_data }} {{ action 'update_user_info' }}>
     Update info
   </button>
 {{else}}

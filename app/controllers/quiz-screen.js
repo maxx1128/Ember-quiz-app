@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { computed, get } from '@ember/object';
+import { computed } from '@ember/object';
 import questions from './../data/questions';
 import { alias } from '@ember/object/computed';
 

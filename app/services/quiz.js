@@ -1,7 +1,6 @@
 import Service from '@ember/service';
 import { inject as service } from '@ember/service';
 import login from './../data/login';
-import { computed } from '@ember/object';
 
 export default Service.extend({
   store: service(),

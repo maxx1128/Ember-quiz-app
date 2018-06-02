@@ -1,0 +1,6 @@
+{
+  "name": "seeclicktrivia",
+  "dependencies": {
+    "qrcode": "^1.0.2"
+  }
+}

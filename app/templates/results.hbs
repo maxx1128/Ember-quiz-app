@@ -1,3 +1,6 @@
+{{quiz-footer
+    finished=model.question.finished}}
+
 <h1>
   Listing all the Results here!
 </h1>
@@ -10,19 +13,10 @@
       show_names=revealed_names}}
 {{/each}}
 
-<br><br>
+{{tw-button
+    text="Reveal the names!"
+    action_1=(action 'reveal_names')}}
 
-<button {{ action 'reveal_names' }}>
-  Reveal the names!
-</button>
-
-<br><br>
-
-<button {{ action 'reset_quiz_state' }}>
-  Reset Quiz
-</button>
-
-<br><br>
-
-{{quiz-footer
-    finished=model.question.finished}}
+{{tw-button
+      text="Reset Quiz"
+      action_1=(action 'reset_quiz_state')}}

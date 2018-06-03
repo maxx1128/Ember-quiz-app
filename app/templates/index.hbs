@@ -1,24 +1,23 @@
-<h1>
-  {{ basic_info.title }}
-</h1>
-
-<p>
-  {{ basic_info.subheading }}
-</p>
-
-<img src="{{ basic_info.qr_code }}" alt="">
-
-<br><br>
-
-{{#link-to 'user.new' class="bg-blue color-white"}}
-  Direct link for new user
-{{/link-to}}
-
-<br><br>
-
-{{#link-to 'explaination' class="bg-blue color-white"}}
-  Everyone signed up?
-{{/link-to}}
-
 {{quiz-footer
     finished=model.question.finished}}
+
+<div class="text-center">
+  <h1 class="mb-4">
+    {{ basic_info.title }}
+  </h1>
+
+  <p class="mb-4">
+    {{ basic_info.subheading }}
+  </p>
+
+  <img class="block w-full md:w-3/5 md:mx-auto mb-4 md:mb-8" src="{{ basic_info.qr_code }}" alt="">
+
+  {{tw-button
+      text="Direct link for new users"
+      link_to='user.new'
+      wrapper_classes="block mb-4"}}
+
+  {{tw-button
+      text="Everyone signed up?"
+      link_to='explaination'}}
+</div>

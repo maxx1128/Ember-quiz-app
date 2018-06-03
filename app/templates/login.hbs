@@ -12,16 +12,10 @@
   </p>
 {{/if}}
 
-<br><br>
-
 {{ input value=username placeholder="Username" class="border p2" }}
-
-<br><br>
 
 {{ input value=password placeholder="Password" class="border p2" type="password" }}
 
-<br><br>
-
-<button {{ action 'login' username password }}>
-  Login
-</button>
+{{tw-button
+    text="Login"
+    action_1=(action 'login' username password)}}

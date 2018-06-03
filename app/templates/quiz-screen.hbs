@@ -1,17 +1,12 @@
+{{quiz-footer
+    finished=model.question.finished}}
+
 <h1>
   Quiz screen!
 </h1>
 
-<h3>
-  Question is {{ question_state }}
-</h3>
-
-<br><br>
-
 {{current-question
     question_number = question_number}}
-
-<br><br>
 
 <p>
   Answers for this question:
@@ -25,23 +20,12 @@
       show_names=false}}
 {{/each}}
 
-<br><br><br>
-
 {{#unless question_is_closed}}
-  <button {{ action 'close_question' }}>
-    Close Question
-  </button>
+  {{tw-button
+      text="Close Question"
+      action_1=(action 'close_question')}}
 {{else}}
-  <button {{ action 'go_to_next_question' }}>
-    {{#if last_question}}
-      See the Results!
-    {{else}}
-      Next Question
-    {{/if}}
-  </button>
+  {{tw-button
+      text=action_text
+      action_1=(action 'go_to_next_question')}}
 {{/unless}}
-
-<br><br>
-
-{{quiz-footer
-    finished=model.question.finished}}

@@ -1,3 +1,6 @@
+{{quiz-footer
+    finished=model.question.finished}}
+
 <h1>
   Rules of the quiz explained here!
 </h1>
@@ -10,9 +13,6 @@
   The point system
 </p>
 
-<button class="bg-blue color-white" {{ action 'start_quiz' }}>
-  Let's begin!
-</button>
-
-{{quiz-footer
-    finished=model.question.finished}}
+{{tw-button
+      text="Let's Begin!"
+      action_1=(action 'start_quiz')}}

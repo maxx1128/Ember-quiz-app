@@ -29,6 +29,10 @@ export default Controller.extend({
       return (next_question === total_questions);
   }),
 
+  action_text: computed('last_question', function() {
+    return (this.get('last_question')) ? 'See the Results!' : 'Next Question';
+  }),
+
   actions: {
     close_question() {
       this.get('quiz').close_question();

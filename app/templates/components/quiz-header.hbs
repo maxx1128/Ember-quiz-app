@@ -1,0 +1,19 @@
+<ul class="list-reset flex justify-between p-3 mb-4 bg-blue-lighter shadow text-blue-darkest">
+  <li>
+    {{#link-to 'index' class="no-underline"}}
+      Home
+    {{/link-to}}
+  </li>
+
+  <li>
+    {{#if finished}}
+      {{#link-to 'results' class="no-underline"}}
+        Results
+      {{/link-to}}
+    {{else}}
+      {{#link-to 'quiz_screen' class="no-underline"}}
+        Quiz
+      {{/link-to}}
+    {{/if}}
+  </li>
+</ul>

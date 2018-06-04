@@ -1,19 +1,21 @@
-<ul class="list-reset flex justify-between p-3 mb-6 bg-blue-lightest shadow text-blue-darkest">
-  <li>
-    {{#link-to 'index' class="no-underline"}}
-      Home
-    {{/link-to}}
-  </li>
+{{#if admin_logged_in}}
+  <ul class="list-reset flex justify-between p-3 mb-6 bg-blue-lightest shadow text-blue-darkest">
+    <li>
+      {{#link-to 'index' class="no-underline"}}
+        Home
+      {{/link-to}}
+    </li>
 
-  <li>
-    {{#if finished}}
-      {{#link-to 'results' class="no-underline"}}
-        Results
-      {{/link-to}}
-    {{else}}
-      {{#link-to 'quiz_screen' class="no-underline"}}
-        Quiz
-      {{/link-to}}
-    {{/if}}
-  </li>
-</ul>
+    <li>
+      {{#if finished}}
+        {{#link-to 'results' class="no-underline"}}
+          Results
+        {{/link-to}}
+      {{else}}
+        {{#link-to 'quiz_screen' class="no-underline"}}
+          Quiz
+        {{/link-to}}
+      {{/if}}
+    </li>
+  </ul>
+{{/if}}

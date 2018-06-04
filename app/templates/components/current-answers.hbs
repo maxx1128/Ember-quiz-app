@@ -1,7 +1,9 @@
-<ul>
-  {{#each answers as |answer|}}
-    <li {{ action 'select_answer' user question_number answer.correct }}>
-      {{answer.text}}
-    </li>
-  {{/each}}
-</ul>
+
+{{#each answers as |answer|}}
+  <div class="mb-6">
+    {{tw-button
+        text=answer.text
+        class_names="w-full"
+        action_1=(action 'select_answer' user question_number answer.correct)}}
+  </div>
+{{/each}}

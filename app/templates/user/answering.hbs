@@ -1,24 +1,28 @@
-{{#if showing_hold_screen}}
-  <h1>
-    Hold Screen!
-  </h1>
+<div class="text-center">
+  {{#if showing_hold_screen}}
+    <h1 class="mb-6">
+      Hold Screen!
+    </h1>
 
-  <p>
-    Please wait for the next question to become available.
-  </p>
+    <p class="mb-4">
+      Please wait for the next question to become available.
+    </p>
 
-{{else}}
-  <h1>
-    Answering screen!
-  </h1>
+  {{else}}
+    <h1 class="mb-6">
+      Answer the question below!
+    </h1>
 
-  {{current-question
-      question_number = question_number}}
+    <div class="mb-4">
+      {{current-question
+          question_number = question_number}}
+    </div>
 
-  {{current-answers
-      question_number=question_number
-      user=user
-      answered_state=answered_state
-      users_who_answered=users_who_answered
-      number_of_answers=users_who_answered.length}}
-{{/if}}
+    {{current-answers
+        question_number=question_number
+        user=user
+        answered_state=answered_state
+        users_who_answered=users_who_answered
+        number_of_answers=users_who_answered.length}}
+  {{/if}}
+</div>

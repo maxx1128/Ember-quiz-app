@@ -1,31 +1,35 @@
-<div class="text-center">
-  <h1 class="mb-6">
-    Join the Quiz!
-  </h1>
 
-  {{#unless user_info_submitted}}
-    <div class="block mb-4">
-      {{ input value=real_name class="border rounded p-2" placeholder="Real Name" }}
-    </div>
+<h1 class="text-center mb-6">
+  Join the Quiz!
+</h1>
 
-    <div class="block mb-8">
-      {{ input value=code_name class="border rounded p-2" placeholder="Code Name" }}
-    </div>
+{{#unless user_info_submitted}}
+  <div class="block mb-6">
+    {{ input value=real_name class="border rounded p-2 w-full" placeholder="Real Name" }}
+    <p class="font-bold mt-2">
+      Put your real name here.
+    </p>
+  </div>
 
-    <div>
+  <div class="block mb-8">
+    {{ input value=code_name class="border rounded p-2 w-full" placeholder="Code Name" }}
+    <p class="font-bold mt-2">
+      Make a code name that others won't recognize.
+    </p>
+    <p class="text-sm mt-1 italic">
+      Can't think of a code name? <a href="javascript:void(0)" {{ action 'random_code_name' }}>Make a random one!</a>
+    </p>
+  </div>
+
+  <div>
+    {{#unless invalid_user_data}}
       {{tw-button
-          text="Make a random code name!"
-          action_1=(action 'random_code_name')}}
-
-      <br><br>
-
-      {{#unless invalid_user_data}}
-        {{tw-button
-            text="Submit Your Entry"
-            action_1=(action 'update_user_info')}}
-      {{/unless}}
-    </div>
-  {{else}}
+          text="Submit Your Entry"
+          action_1=(action 'update_user_info')}}
+    {{/unless}}
+  </div>
+{{else}}
+  <div class="text-center">
     <div class="text-xl mb-2">
       Real name: <strong>{{ user.real_name }}</strong>
     </div>
@@ -42,5 +46,5 @@
     {{tw-button
           text="Go to the Quiz!"
           link_to='user.answering'}}
-  {{/unless}}
-</div>
+  </div>
+{{/unless}}

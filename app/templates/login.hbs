@@ -1,21 +1,29 @@
-<h1>
-  Halt!
-</h1>
+<div class="text-center">
+  <h1 class="mb-6">
+    Halt!
+  </h1>
 
-<p>
-  It's dangerous up ahead! Affirm your strength by entering the login info.
-</p>
-
-{{#if failed_login}}
-  <p>
-    WRONG!
+  <p class="mb-4">
+    It's dangerous up ahead! Affirm your strength by entering the login info.
   </p>
-{{/if}}
 
-{{ input value=username placeholder="Username" class="border p2" }}
+  {{#if failed_login}}
+    <div class="p-4 mb-green-lighter">
+      <p>
+        WRONG!
+      </p>
+    </div>
+  {{/if}}
 
-{{ input value=password placeholder="Password" class="border p2" type="password" }}
+  <div class="mb-4">
+    {{ input value=username placeholder="Username" class="border p-2 rounded" }}
+  </div>
 
-{{tw-button
-    text="Login"
-    action_1=(action 'login' username password)}}
+  <div class="mb-4">
+    {{ input value=password placeholder="Password" class="border p-2 rounded" type="password" }}
+  </div>
+
+  {{tw-button
+      text="Login"
+      action_1=(action 'login' username password)}}
+</div>

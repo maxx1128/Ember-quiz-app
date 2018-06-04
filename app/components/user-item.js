@@ -13,8 +13,8 @@ export default Component.extend({
       positive_state = this.get('user.correct');
     }
 
-    let ranking_class = (positive_state ? 'bg-blue' : 'bg-red');
+    let ranking_class = (positive_state ? 'bg-blue-lighter' : 'bg-red-lighter');
 
-    return this.get('show_points') ? ranking_class : '';
+    return this.get('show_points') ? ranking_class : 'bg-purple-lightest';
   })
 });

@@ -1,18 +1,20 @@
 {{quiz-header
     finished=model.question.finished}}
 
-<h1>
-  Rules of the quiz explained here!
-</h1>
+<div class="text-center">
+  <h1 class="mb-6">
+    Rules of the quiz explained here!
+  </h1>
 
-<p>
-  The quiz flow
-</p>
+  <p class="mb-4">
+    The quiz flow
+  </p>
 
-<p>
-  The point system
-</p>
+  <p class="mb-8">
+    The point system
+  </p>
 
-{{tw-button
-      text="Let's Begin!"
-      action_1=(action 'start_quiz')}}
+  {{tw-button
+        text="Let's Begin!"
+        action_1=(action 'start_quiz')}}
+</div>

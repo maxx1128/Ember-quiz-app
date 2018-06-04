@@ -1,22 +1,28 @@
 {{quiz-header
     finished=model.question.finished}}
 
-<h1>
+<h1 class="mb-6 text-center">
   Listing all the Results here!
 </h1>
 
-{{#each organized_results as |user|}}
-  {{user-item
-      user=user
-      results_state=true
-      show_points=revealed_names
-      show_names=revealed_names}}
-{{/each}}
+<div>
+    {{#each organized_results as |user|}}
+        {{user-item
+            user=user
+            results_state=true
+            show_points=revealed_names
+            show_names=revealed_names}}
+    {{/each}}
+</div>
 
-{{tw-button
-    text="Reveal the names!"
-    action_1=(action 'reveal_names')}}
-
-{{tw-button
-      text="Reset Quiz"
-      action_1=(action 'reset_quiz_state')}}
+<div class="text-center">
+    {{#unless revealed_names}}
+        {{tw-button
+            text="Reveal the names!"
+            action_1=(action 'reveal_names')}}
+    {{else}}
+        {{tw-button
+            text="Reset Quiz"
+            action_1=(action 'reset_quiz_state')}}
+    {{/unless}}
+</div>

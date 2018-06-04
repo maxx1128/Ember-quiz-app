@@ -1,24 +1,26 @@
 {{quiz-header
     finished=model.question.finished}}
 
-<h1>
-  Quiz screen!
-</h1>
+<div class="text-center mb-6">
+  <h1 class="mb-4">
+    Question {{ question_number }}:
+  </h1>
 
-{{current-question
-    question_number = question_number}}
+  <h3>
+    {{current-question
+        question_number = question_number}}
+  </h3>
+</div>
 
-<p>
-  Answers for this question:
-</p>
-
-{{#each users_who_answered as |user|}}
-  {{user-item
-      user=user
-      results_state=false
-      show_points=question_is_closed
-      show_names=false}}
-{{/each}}
+<div>
+  {{#each users_who_answered as |user|}}
+    {{user-item
+        user=user
+        results_state=false
+        show_points=question_is_closed
+        show_names=false}}
+  {{/each}}
+</div>
 
 {{#unless question_is_closed}}
   {{tw-button

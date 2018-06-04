@@ -1,5 +1,5 @@
 {
-  "name": "seeclicktrivia",
+  "name": "ember_quiz_app",
   "dependencies": {
     "qrcode": "^1.0.2"
   }

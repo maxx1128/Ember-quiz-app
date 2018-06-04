@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'seeclicktrivia',
+    modulePrefix: 'ember_quiz_app',
     firebase: {
       apiKey: "AIzaSyAmVQUL0zD1z24Bm-yl8OwwWEyK-MtLw8E",
       authDomain: "seeclicktrivia.firebaseapp.com",

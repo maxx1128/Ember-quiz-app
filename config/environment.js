@@ -4,12 +4,12 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'ember_quiz_app',
     firebase: {
-      apiKey: "AIzaSyAmVQUL0zD1z24Bm-yl8OwwWEyK-MtLw8E",
-      authDomain: "seeclicktrivia.firebaseapp.com",
-      databaseURL: "https://seeclicktrivia.firebaseio.com",
-      projectId: "seeclicktrivia",
-      storageBucket: "seeclicktrivia.appspot.com",
-      messagingSenderId: "1022250737020"
+      apiKey: process.env.API_KEY,
+      authDomain: process.env.AUTH_DOMAIN,
+      databaseURL: process.env.DATABASE_URL,
+      projectId: process.env.PROJECT_ID,
+      storageBucket: process.env.STORAGE_BUCKET,
+      messagingSenderId: process.env.MESSAGING_SENDING_ID
     },
     environment,
     rootURL: '/',

@@ -9,8 +9,8 @@ export default Service.extend({
 
   log_in: function(username, password) {
 
-    const saved_username = ENV.USERNAME,
-          saved_password = ENV.PASSWORD,
+    const saved_username = ENV.username,
+          saved_password = ENV.password,
           correct_username = (saved_username === username),
           correct_password = (saved_password === password);
 

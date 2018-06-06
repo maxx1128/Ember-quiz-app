@@ -9,7 +9,9 @@ module.exports = function(environment) {
       databaseURL: process.env.DATABASE_URL,
       projectId: process.env.PROJECT_ID,
       storageBucket: process.env.STORAGE_BUCKET,
-      messagingSenderId: process.env.MESSAGING_SENDING_ID
+      messagingSenderId: process.env.MESSAGING_SENDING_ID,
+      username: process.env.USERNAME,
+      password: process.env.PASSWORD
     },
     environment,
     rootURL: '/',

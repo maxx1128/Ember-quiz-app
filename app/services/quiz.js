@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 import { inject as service } from '@ember/service';
-import login from './../data/login';
+import ENV from './../config/environment';
 
 export default Service.extend({
   store: service(),
@@ -8,8 +8,9 @@ export default Service.extend({
   logged_in: false,
 
   log_in: function(username, password) {
-    const saved_username = this.get('login_data').username,
-          saved_password = this.get('login_data').password,
+
+    const saved_username = ENV.USERNAME,
+          saved_password = ENV.PASSWORD,
           correct_username = (saved_username === username),
           correct_password = (saved_password === password);
 
@@ -81,7 +82,5 @@ export default Service.extend({
       });
       answer.save();
     });
-  },
-
-  login_data: login
+  }
 });

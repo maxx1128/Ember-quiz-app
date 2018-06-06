@@ -10,7 +10,9 @@
     {{ basic_info.subheading }}
   </p>
 
-  <img class="block w-full md:w-3/5 md:mx-auto mb-4 md:mb-8" src="{{ basic_info.qr_code }}" alt="">
+  {{img-tag
+      name=basic_info.home_image
+      classes="block w-full md:w-3/5 md:mx-auto mb-4 md:mb-8"}}
 
   {{tw-button
       text="Direct link for new users"

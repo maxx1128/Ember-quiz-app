@@ -1,43 +1,112 @@
 const questions = [
   {
-    'q_text': 'What is 2 plus 2?',
-    'q_intro': 'Nulla sunt labore irure do culpa laborum irure aliquip incididunt Lorem minim anim. Sit amet deserunt reprehenderit nostrud sunt voluptate est do ea ex laborum irure mollit enim. Ullamco consectetur voluptate consectetur veniam sint Lorem ullamco. Cillum ad et nostrud occaecat veniam voluptate ea sit eu officia ad tempor officia. Reprehenderit labore Lorem commodo in minim laborum. Sint laboris proident eu sit reprehenderit Lorem voluptate est. Cupidatat mollit minim consequat laborum nostrud eiusmod exercitation eiusmod minim.',
-    'q_image': 'https://img00.deviantart.net/a976/i/2015/305/e/0/carnival_wilson_by_erinptah-d9f611r.png',
-    'a_text': 'Magna sunt ipsum adipisicing sunt enim. Pariatur amet in nisi consectetur mollit qui aliqua non. Ea aute ad magna ea reprehenderit cupidatat in Lorem mollit est. Proident ad et reprehenderit ea officia et officia adipisicing incididunt mollit cupidatat ad eiusmod in. Eiusmod tempor occaecat eu dolore id quis proident id. Sunt mollit non esse elit ea laborum sit velit officia sint proident est labore.',
-    'a_image': 'https://i1.sndcdn.com/artworks-000191221487-8m77vu-t500x500.jpg',
+    'q_text': 'Who plays Captain America in the current releases of the Marvel movie franchise?',
+    'q_intro': 'From the new titles such as Civil War and The Avengers',
+    'q_image': 'https://cdn.vox-cdn.com/thumbor/T-F4dV0PEp6eC-Z7lTu6fcdhDFQ=/0x0:1916x784/1200x800/filters:focal(517x45:823x351)/cdn.vox-cdn.com/uploads/chorus_image/image/59126061/Screen_Shot_2018_03_22_at_3.09.54_PM.0.png',
     'answers':[
       {
-        'text': '4',
+        'text': 'Chris Evans',
         'correct': true
       }, {
-        'text': '5',
+        'text': 'Jeremy Renner',
         'correct': false
       }, {
-        'text': '7',
+        'text': 'Chris Hemsworth',
         'correct': false
       }, {
-        'text': '15',
+        'text': 'Matthew Wolf',
         'correct': false
       }
     ]
   }, {
-    'q_text': 'What is 3 plus 3?',
-    'q_intro': 'Ea voluptate ex incididunt voluptate consectetur anim. Elit mollit labore nulla exercitation et non. Lorem excepteur et ea sunt sunt pariatur sunt officia enim labore aute deserunt voluptate qui. Minim ullamco et magna laborum exercitation commodo deserunt proident esse. Est exercitation exercitation sint duis commodo.',
-    'q_image': 'https://img00.deviantart.net/a976/i/2015/305/e/0/carnival_wilson_by_erinptah-d9f611r.png',
-    'a_text': 'Ex voluptate dolor qui do laborum commodo ipsum ullamco in sint eiusmod non cupidatat. Sit consequat laborum sunt eiusmod proident qui. Pariatur commodo laboris amet fugiat eiusmod do est ex enim.',
-    'a_image': 'https://i1.sndcdn.com/artworks-000191221487-8m77vu-t500x500.jpg',
+    'q_text': 'Who was the twelth president of the United States?',
+    'a_text': 'Duh!',
+    'a_image': 'https://www.biography.com/.image/t_share/MTE5NTU2MzE2Mzg0ODIyNzk1/zachary-taylor-9503363-1-402.jpg',
     'answers':[
       {
-        'text': '6',
+        'text': 'Zachary Taylor',
         'correct': true
       }, {
-        'text': '5',
+        'text': 'James Polk',
         'correct': false
       }, {
-        'text': '7',
+        'text': 'John Tyler',
         'correct': false
       }, {
-        'text': '15',
+        'text': 'Abraham Lincoln',
+        'correct': false
+      }
+    ]
+  }, {
+    'q_text': 'What is illegal in Boston, Massachussets?',
+    'a_text': 'Although "good driving" is basically correct too.',
+    'answers':[
+      {
+        'text': 'Eating peanuts in church',
+        'correct': true
+      }, {
+        'text': 'Good driving',
+        'correct': false
+      }, {
+        'text': 'Buying squirt guns',
+        'correct': false
+      }, {
+        'text': 'Scaring pigeons',
+        'correct': false
+      }
+    ]
+  }, {
+    'q_text': 'Where was the fortune cookie invented?',
+    'a_text': 'AMERICA FUCK YEAH',
+    'answers':[
+      {
+        'text': 'America',
+        'correct': true
+      }, {
+        'text': 'China',
+        'correct': false
+      }, {
+        'text': 'Japan',
+        'correct': false
+      }, {
+        'text': 'Malaysia',
+        'correct': false
+      }
+    ]
+  }, {
+    'q_text': 'Whic of these New Haven facts is false?',
+    'q_image': 'https://rms-rentals.com/wp-content/uploads/2017/01/new-haven-neighborhood-skyline.jpg',
+    'a_text': '',
+    'answers':[
+      {
+        'text': 'First co-capital of Connecticut',
+        'correct': true
+      }, {
+        'text': 'First planned city in America',
+        'correct': false
+      }, {
+        'text': 'First public tree planting program',
+        'correct': false
+      }, {
+        'text': 'First use of the "Nine Square Plan" city design',
+        'correct': false
+      }
+    ]
+  }, {
+    'q_text': 'What was the original name for Q Tips?',
+    'a_text': 'Amazing but true',
+    'answers':[
+      {
+        'text': 'Baby gays',
+        'correct': true
+      }, {
+        'text': 'Cotton swabs',
+        'correct': false
+      }, {
+        'text': 'Ear swabs',
+        'correct': false
+      }, {
+        'text': 'Eardrum eviscerators',
         'correct': false
       }
     ]

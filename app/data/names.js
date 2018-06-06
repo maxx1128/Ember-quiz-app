@@ -1,15 +1,22 @@
 const names = {
   first: [
-    'Ruby',
-    'Weiss',
-    'Blake',
-    'Yang'
+    'Super',
+    'Hyper',
+    'Extreme',
+    'Wimpy',
+    'Fast',
+    'Blocky',
+    'Fragmented'
   ],
   last: [
-    'Rose',
-    'Schnee',
-    'Belladonna',
-    'Xiaolong'
+    'PHP',
+    'Scala',
+    'Java',
+    'JavaScript',
+    'Ruby',
+    'Python',
+    'Node',
+    'CSS'
   ]
 };
 

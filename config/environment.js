@@ -3,15 +3,15 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'ember_quiz_app',
+    username: process.env.USERNAME,
+    password: process.env.PASSWORD,
     firebase: {
       apiKey: process.env.API_KEY,
       authDomain: process.env.AUTH_DOMAIN,
       databaseURL: process.env.DATABASE_URL,
       projectId: process.env.PROJECT_ID,
       storageBucket: process.env.STORAGE_BUCKET,
-      messagingSenderId: process.env.MESSAGING_SENDING_ID,
-      username: process.env.USERNAME,
-      password: process.env.PASSWORD
+      messagingSenderId: process.env.MESSAGING_SENDING_ID
     },
     environment,
     rootURL: '/',
@@ -28,8 +28,8 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      username: process.env.USERNAME,
+      password: process.env.PASSWORD
     }
   };
 

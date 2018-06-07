@@ -1,9 +1,19 @@
 
-{{#each answers as |answer|}}
-  <div class="mb-6">
-    {{tw-button
-        text=answer.text
-        class_names="w-full"
-        action_1=(action 'select_answer' user question_number answer.correct)}}
-  </div>
-{{/each}}
+{{#unless user_secretly_answered}}
+  {{#each answers as |answer|}}
+    <div class="mb-6">
+      {{tw-button
+          text=answer.text
+          class_names="w-full"
+          action_1=(action 'select_answer' user question_number answer.correct)}}
+    </div>
+  {{/each}}
+{{else}}
+  <h3 class="mb-4">
+    Nice try!
+  </h3>
+
+  <p class="mb-4">
+    You've already answered this question! Please wait until the next one opens up.
+  </p>
+{{/unless}}

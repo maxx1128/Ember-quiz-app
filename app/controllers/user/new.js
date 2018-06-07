@@ -5,6 +5,7 @@ import names from './../../data/names';
 
 export default Controller.extend({
   user: service(),
+  store: service(),
 
   real_name: '',
   code_name: '',
@@ -22,8 +23,18 @@ export default Controller.extend({
       let invalid = this.get('invalid_user_data');
 
       if (!invalid) {
-        this.get('user').set_names(this.get('real_name'), this.get('code_name'));
+        const store = this.get('store'),
+              realname = this.get('real_name'),
+              codename = this.get('code_name').replace(/[!@#$%^&*]/g,'').replace(/ /g, '');
+
+        this.set('code_name', codename);
+        this.get('user').set_names(realname, codename);
         this.set('user_info_submitted', true);
+
+        store.createRecord('user', {
+          realname: realname,
+          codename: codename
+        }).save();
       }
     },
 

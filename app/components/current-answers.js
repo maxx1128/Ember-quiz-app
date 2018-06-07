@@ -5,6 +5,7 @@ import { computed, get } from '@ember/object';
 
 export default Component.extend({
   quiz: service(),
+  store: service(),
 
   answers: computed('questions_data', 'question_number', function(){
     let question = this.get('questions_data').objectAt(this.get('question_number'));
@@ -12,18 +13,26 @@ export default Component.extend({
     return shuffle(question.answers);
   }),
 
+  current_user_didnt_answer: computed('users_who_answered', 'user', function(){
+    const all_users = this.get('users_who_answered').reduce(function(usernames, user) {
+      usernames.push(get(user, 'user_codename'));
+
+      return usernames;
+    }, []);
+
+    return !(all_users.includes(get(this.get('user'), 'code_name')));
+  }),
+
+  user_secretly_answered: computed('answered_state', 'current_user_didnt_answer', function(){
+    const game_expects_an_answer = !(this.get('answered_state')),
+          user_already_answered = !(this.get('current_user_didnt_answer'));
+
+    return game_expects_an_answer && user_already_answered;
+  }),
+
   actions: {
     select_answer(user, question_number, correct) {
-
-      const all_users = this.get('users_who_answered').reduce(function(usernames, user) {
-        usernames.push(get(user, 'user_codename'));
-
-        return usernames;
-      }, []);
-
-      const current_user_didnt_answer = !(all_users.includes(get(user, 'code_name')));
-
-      if (current_user_didnt_answer) {
+      if (this.get('current_user_didnt_answer')) {
         let final_points,
             base_points = 5,
             timing_limit = 15,

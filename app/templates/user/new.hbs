@@ -43,6 +43,10 @@
       You're ready to play!
     </p>
 
+    {{#link-to 'user.answering' user.code_name}}
+      Go to the Quiz!
+    {{/link-to}}
+
     {{tw-button
           text="Go to the Quiz!"
           link_to='user.answering'}}

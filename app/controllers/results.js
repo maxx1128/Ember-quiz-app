@@ -7,6 +7,10 @@ export default Controller.extend({
 
   revealed_names: false,
 
+  admin: computed(function(){
+    return this.get('quiz').logged_in;
+  }),
+
   organized_results: computed('model.answers', function(){
     let data = this.get('model.answers').toArray();
 

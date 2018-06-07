@@ -21,8 +21,10 @@
             text="Reveal the names!"
             action_1=(action 'reveal_names')}}
     {{else}}
-        {{tw-button
-            text="Reset Quiz"
-            action_1=(action 'reset_quiz_state')}}
+        {{#if admin}}
+            {{tw-button
+                text="Reset Quiz"
+                action_1=(action 'reset_quiz_state')}}
+        {{/if}}
     {{/unless}}
 </div>

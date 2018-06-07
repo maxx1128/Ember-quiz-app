@@ -1,17 +1,7 @@
 {{quiz-header
     finished=model.question.finished}}
 
-<div class="text-center mb-6">
-  <h1 class="mb-4">
-    Question {{ next_question_number }}:
-  </h1>
-
-  {{current-question
-      show_answer=question_is_closed
-      question_number = question_number}}
-</div>
-
-<div>
+<div class="mb-6">
   {{#each users_who_answered as |user|}}
     {{user-item
         user=user
@@ -19,6 +9,16 @@
         show_points=question_is_closed
         show_names=false}}
   {{/each}}
+</div>
+
+<div class="text-center">
+  <h1 class="mb-4">
+    Question {{ next_question_number }}:
+  </h1>
+
+  {{current-question
+      show_answer=question_is_closed
+      question_number = question_number}}
 </div>
 
 {{#unless question_is_closed}}

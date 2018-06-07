@@ -1,27 +1,33 @@
 {{#if show_answer}}
-  <h3>
+  <h3 class="mb-4">
     {{answer}}
   </h3>
 
-  <p>
-    {{question_object.a_text}}
-  </p>
+  {{#if question_object.a_text}}
+    <p class="mb-4">
+      {{question_object.a_text}}
+    </p>
+  {{/if}}
 
   {{#if question_object.a_image}}
     {{img-tag
-        url=question_object.a_image}}
+        url=question_object.a_image
+        classes="block w-full md:w-3/5 md:mx-auto mb-4 md:mb-8"}}
   {{/if}}
 {{else}}
-  <h3>
+  <h3 class="mb-4">
     {{ question_object.q_text }}
   </h3>
 
-  <p>
-    {{ question_object.q_intro }}
-  </p>
+  {{#if question_object.q_intro }}
+    <p class="mb-4">
+      {{ question_object.q_intro }}
+    </p>
+  {{/if}}
 
   {{#if question_object.q_image}}
     {{img-tag
-        url=question_object.q_image}}
+        url=question_object.q_image
+        classes="block w-full md:w-3/5 md:mx-auto mb-4 md:mb-8"}}
   {{/if}}
 {{/if}}

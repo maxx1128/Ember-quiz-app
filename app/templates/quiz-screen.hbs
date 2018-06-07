@@ -6,10 +6,9 @@
     Question {{ next_question_number }}:
   </h1>
 
-  <h3>
-    {{current-question
-        question_number = question_number}}
-  </h3>
+  {{current-question
+      show_answer=question_is_closed
+      question_number = question_number}}
 </div>
 
 <div>

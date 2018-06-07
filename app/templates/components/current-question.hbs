@@ -1,1 +1,27 @@
-{{ question_text }}
+{{#if show_answer}}
+  <h3>
+    {{answer}}
+  </h3>
+
+  <p>
+    {{question_object.a_text}}
+  </p>
+
+  {{#if question_object.a_image}}
+    {{img-tag
+        url=question_object.a_image}}
+  {{/if}}
+{{else}}
+  <h3>
+    {{ question_object.q_text }}
+  </h3>
+
+  <p>
+    {{ question_object.q_intro }}
+  </p>
+
+  {{#if question_object.q_image}}
+    {{img-tag
+        url=question_object.q_image}}
+  {{/if}}
+{{/if}}

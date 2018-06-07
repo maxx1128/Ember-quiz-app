@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { computed, observer, get } from '@ember/object';
+import { computed, observer } from '@ember/object';
 import { alias } from '@ember/object/computed';
 
 export default Controller.extend({
@@ -17,7 +17,6 @@ export default Controller.extend({
   showing_hold_screen: computed('question_state', 'answered_state', 'finished_quiz', function(){
     let answered_question = this.get('answered_state'),
         not_open_question = (this.get('question_state') !== 'open'),
-        user_answered = this.get('model.user.answered'),
         finished_quiz = (this.get('finished_quiz'));
 
     return (answered_question || not_open_question || finished_quiz);

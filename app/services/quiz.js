@@ -21,17 +21,31 @@ export default Service.extend({
     }
   },
 
-  submit_answer: function(user, q_number, correct, points) {
-    let store = this.get('store');
+  submit_answer(user, question_number, correct, current_answers, user_can_answer) {
+    if (user_can_answer) {
+      let final_points,
+          store = this.get('store'),
+          base_points = 5,
+          timing_limit = 15,
+          timing_rank = ((timing_limit - current_answers) / 2);
 
-    store.createRecord('answer', {
-      uniq_id: user.uniq_id,
-      question: q_number,
-      user_codename: user.code_name,
-      user_realname: user.real_name,
-      correct: correct,
-      points: points
-    }).save();
+      if ((current_answers < timing_limit) && (timing_rank >= 1)) {
+        base_points = correct ? 4 : -2;
+
+        final_points = (base_points * timing_rank);
+      } else {
+        final_points = correct ? base_points : 0;
+      }
+
+      store.createRecord('answer', {
+        uniq_id: user.uniq_id,
+        question: question_number,
+        user_codename: user.code_name,
+        user_realname: user.real_name,
+        correct: correct,
+        points: final_points
+      }).save();
+    }
   },
 
   get_users_who_answered: function(question_number, users) {

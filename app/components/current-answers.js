@@ -34,28 +34,7 @@ export default Component.extend({
 
   actions: {
     select_answer(user, question_number, correct) {
-      console.log(user);
-
-      if (this.get('current_user_didnt_answer')) {
-        let final_points,
-            base_points = 5,
-            timing_limit = 15,
-            current_answers = this.get('number_of_answers'),
-            timing_rank = ((timing_limit - current_answers) / 2);
-
-        if ((current_answers < timing_limit) && (timing_rank >= 1)) {
-          base_points = correct ? 4 : -2;
-
-          final_points = (base_points * timing_rank);
-        } else {
-          final_points = correct ? base_points : 0;
-        }
-
-        console.log(user);
-
-        this.get('quiz').submit_answer(user, question_number, correct, final_points);
-      }
-
+      this.get('quiz').submit_answer(user, question_number, correct, this.get('number_of_answers'), this.get('current_user_didnt_answer'));
       this.set('answered_state', true);
     }
   },

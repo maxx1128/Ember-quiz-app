@@ -1,6 +1,15 @@
 {{quiz-header
     finished=model.question.finished}}
 
+{{#unless question_is_closed}}
+  {{countdown-timer
+      limit=25
+      event_on_finish=(action 'close_question')}}
+
+  <br>
+  <br>
+{{/unless}}
+
 <div class="mb-6">
   {{#each users_who_answered as |user|}}
     {{user-item

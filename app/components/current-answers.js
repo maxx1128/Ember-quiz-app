@@ -20,8 +20,6 @@ export default Component.extend({
       return usernames;
     }, []);
 
-    console.log(get(this.get('user'), 'uniq_id'));
-
     return !(all_users.includes(get(this.get('user'), 'uniq_id')));
   }),
 

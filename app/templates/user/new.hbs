@@ -5,19 +5,19 @@
 
 {{#unless user_info_submitted}}
   <div class="block mb-6">
-    {{ input value=real_name class="border rounded p-2 w-full" placeholder="Real Name" }}
     <p class="font-bold mt-2">
       Put your real name here.
     </p>
+    {{ input value=real_name class="border rounded p-2 w-full" placeholder="Real Name" }}
   </div>
 
   <div class="block mb-8">
-    {{ input value=code_name class="border rounded p-2 w-full" placeholder="Code Name" }}
     <p class="font-bold mt-2">
-      Make a code name that others won't recognize.
+      Make a code name others won't recognize.
     </p>
-    <p class="text-sm mt-1 italic">
-      Can't think of a code name? <a href="javascript:void(0)" {{ action 'random_code_name' }}>Make a random one!</a>
+    {{ input value=code_name class="border rounded p-2 w-full" placeholder="Code Name" }}
+    <p class="mt-1 italic">
+      Stumped? <a href="javascript:void(0)" {{ action 'random_code_name' }}>Generate a code name!</a>
     </p>
   </div>
 

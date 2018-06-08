@@ -27,7 +27,7 @@ export default Controller.extend({
         const store = this.get('store'),
               new_id = makeid(),
               realname = this.get('real_name'),
-              codename = this.get('code_name').replace(/[!@#$%^&*]/g,'').replace(/ /g, '');
+              codename = this.get('code_name');
 
         this.set('code_name', codename);
         this.get('user').set_names(new_id, realname, codename);

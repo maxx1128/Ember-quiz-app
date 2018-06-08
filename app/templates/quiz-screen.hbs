@@ -20,10 +20,10 @@
   {{/each}}
 </div>
 
-<div class="text-center">
-  <h1 class="mb-4">
-    Question {{ next_question_number }}:
-  </h1>
+<div class="text-center mb-4">
+  <h3 class="mb-4">
+    {{if-string question_is_closed 'Answer' 'Question'}} #{{ next_question_number }}
+  </h3>
 
   {{current-question
       show_answer=question_is_closed
@@ -36,6 +36,6 @@
       action_1=(action 'close_question')}}
 {{else}}
   {{tw-button
-      text=action_text
+      text=(if-string last_question 'See the Results!' 'Next Question')
       action_1=(action 'go_to_next_question')}}
 {{/unless}}

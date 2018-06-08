@@ -5,6 +5,7 @@ export default Service.extend({
   info_added: false,
   real_name: "",
   code_name: "",
+  uniq_id: "",
 
   no_created_user: computed('real_name', 'code_name', function(){
     const no_real_name = this.get('real_name') === '',
@@ -19,7 +20,8 @@ export default Service.extend({
     return `https://robohash.org/${code_name}?set=set4`;
   }),
 
-  set_names: function(real_name, code_name){
+  set_names: function(uniq_id, real_name, code_name){
+    this.set('uniq_id', uniq_id);
     this.set('real_name', real_name);
     this.set('code_name', code_name);
 

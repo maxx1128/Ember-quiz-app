@@ -15,12 +15,14 @@ export default Component.extend({
 
   current_user_didnt_answer: computed('users_who_answered', 'user', function(){
     const all_users = this.get('users_who_answered').reduce(function(usernames, user) {
-      usernames.push(get(user, 'user_codename'));
+      usernames.push(get(user, 'uniq_id'));
 
       return usernames;
     }, []);
 
-    return !(all_users.includes(get(this.get('user'), 'code_name')));
+    console.log(get(this.get('user'), 'uniq_id'));
+
+    return !(all_users.includes(get(this.get('user'), 'uniq_id')));
   }),
 
   user_secretly_answered: computed('answered_state', 'current_user_didnt_answer', function(){
@@ -32,6 +34,8 @@ export default Component.extend({
 
   actions: {
     select_answer(user, question_number, correct) {
+      console.log(user);
+
       if (this.get('current_user_didnt_answer')) {
         let final_points,
             base_points = 5,
@@ -46,6 +50,8 @@ export default Component.extend({
         } else {
           final_points = correct ? base_points : 0;
         }
+
+        console.log(user);
 
         this.get('quiz').submit_answer(user, question_number, correct, final_points);
       }

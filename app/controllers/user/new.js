@@ -9,6 +9,7 @@ export default Controller.extend({
 
   real_name: '',
   code_name: '',
+  new_id: '',
   user_info_submitted: false,
 
   invalid_user_data: computed('real_name', 'code_name', function(){
@@ -24,14 +25,17 @@ export default Controller.extend({
 
       if (!invalid) {
         const store = this.get('store'),
+              new_id = makeid(),
               realname = this.get('real_name'),
               codename = this.get('code_name').replace(/[!@#$%^&*]/g,'').replace(/ /g, '');
 
         this.set('code_name', codename);
-        this.get('user').set_names(realname, codename);
+        this.get('user').set_names(new_id, realname, codename);
         this.set('user_info_submitted', true);
+        this.set('new_id', new_id);
 
         store.createRecord('user', {
+          uniq_id: new_id,
           realname: realname,
           codename: codename
         }).save();
@@ -49,3 +53,13 @@ export default Controller.extend({
 
   names_data: names
 });
+
+function makeid() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 20; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+}

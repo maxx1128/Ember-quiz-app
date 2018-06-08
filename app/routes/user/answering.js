@@ -7,7 +7,7 @@ export default Route.extend({
   store: service(),
 
   model(params) {
-    return this.get('store').query('user', { orderBy: 'codename', equalTo: params.codename }).then((user) => {
+    const model = this.get('store').query('user', { orderBy: 'uniq_id', equalTo: params.uniq_id }).then((user) => {
 
       return hash({
         question: this.store.findRecord('question', 1),
@@ -20,6 +20,8 @@ export default Route.extend({
         user: false
       };
     });
+
+    return model;
   },
 
 
@@ -27,7 +29,7 @@ export default Route.extend({
     if (!model.user) {
       this.transitionTo('user.new');
     } else {
-      this.get('user').set_names(model.user.realname, model.user.codename)
+      this.get('user').set_names(model.user.uniq_id, model.user.realname, model.user.codename)
     }
   }
 });

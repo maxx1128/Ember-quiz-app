@@ -15,17 +15,18 @@ export default Controller.extend({
     let data = this.get('model.answers').toArray();
 
     let compiled_data = data.reduce(function(points_tally, answer) {
-      let real_name = answer.get('user_realname'),
+      let real_name = answer.get('uniq_id'),
           already_added_index = false;
 
       points_tally.forEach(function(item, index){
-        let check_username = item.user_realname;
+        let check_username = item.uniq_id;
 
         if (real_name === check_username) { already_added_index = index; }
       });
 
       if (already_added_index === false) {
         points_tally.push({
+          uniq_id: answer.get('uniq_id'),
           user_realname: answer.get('user_realname'),
           user_codename: answer.get('user_codename'),
           points: answer.get('points'),
@@ -56,6 +57,7 @@ export default Controller.extend({
     reset_quiz_state() {
       this.get('quiz').reset_quiz_state();
       this.get('quiz').delete_all_qs();
+      this.get('quiz').delete_all_users();
       this.transitionToRoute('index');
     }
   }

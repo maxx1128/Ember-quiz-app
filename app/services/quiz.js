@@ -25,6 +25,7 @@ export default Service.extend({
     let store = this.get('store');
 
     store.createRecord('answer', {
+      uniq_id: user.uniq_id,
       question: q_number,
       user_codename: user.code_name,
       user_realname: user.real_name,
@@ -81,6 +82,16 @@ export default Service.extend({
         rec.save();
       });
       answer.save();
+    });
+  },
+
+  delete_all_users: function() {
+    this.get('store').findAll('user').then(function(user){
+      user.forEach(function(rec) {
+        rec.deleteRecord();
+        rec.save();
+      });
+      user.save();
     });
   }
 });

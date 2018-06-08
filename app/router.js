@@ -9,7 +9,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('user', function() {
     this.route('new');
-    this.route('answering', { path: '/answering/:codename' });
+    this.route('answering', { path: '/answering/:uniq_id' });
   });
   this.route('quiz_screen');
   this.route('results');

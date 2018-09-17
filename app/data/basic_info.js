@@ -1,7 +1,7 @@
 const basic_info = {
-  title: "Quiz Title",
-  subheading: "A basic description of your quiz game here!",
-  home_image: "https://cdn-images-1.medium.com/max/1440/1*kYT6nGA-NeGit2TDTfm-bw.png"
+  title: "NewHaven.IO JavaScript Trivia",
+  subheading: "Test your basic, and obscure, JavaScript knowledge",
+  home_image: "https://cdn-images-1.medium.com/max/1200/1*H-25KB7EbSHjv70HXrdl6w.png"
 }
 
 export default basic_info;

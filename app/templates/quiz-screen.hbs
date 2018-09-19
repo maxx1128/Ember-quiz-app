@@ -30,12 +30,8 @@
       question_number = question_number}}
 </div>
 
-{{#unless question_is_closed}}
-  {{tw-button
-      text="Close Question"
-      action_1=(action 'close_question')}}
-{{else}}
+{{#if question_is_closed}}
   {{tw-button
       text=(if-string last_question 'See the Results!' 'Next Question')
       action_1=(action 'go_to_next_question')}}
-{{/unless}}
+{{/if}}

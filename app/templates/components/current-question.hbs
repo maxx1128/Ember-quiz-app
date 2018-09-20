@@ -8,6 +8,12 @@
       {{question_object.a_text}}
     </p>
   {{/if}}
+
+  {{#if question_object.a_image}}
+    {{img-tag
+        url=question_object.a_image
+        classes="block w-full md:w-3/5 md:mx-auto mb-4 md:mb-8"}}
+  {{/if}}
 {{else}}
   <h1 class="mb-4">
     {{ question_object.q_text }}
